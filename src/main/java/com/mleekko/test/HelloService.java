@@ -31,6 +31,10 @@ import org.cometd.java.annotation.Listener;
 import org.cometd.java.annotation.Service;
 import org.cometd.java.annotation.Session;
 
+/**
+ * @author "mleekko"
+ *
+ */
 @Named
 @Singleton
 @Service("helloService")
@@ -41,11 +45,18 @@ public class HelloService
     @Session
     private ServerSession serverSession;
 
+    /**
+     * inits)
+     */
     @PostConstruct
     public void init()
     {
     }
 
+    /**
+     * @param remote
+     * @param message
+     */
     @Listener("/service/hello")
     public void processHello(ServerSession remote, ServerMessage.Mutable message)
     {
